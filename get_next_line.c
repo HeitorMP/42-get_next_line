@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmaciel- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hmaciel- <hmaciel-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 15:29:01 by hmaciel-          #+#    #+#             */
-/*   Updated: 2022/11/22 10:15:56 by hmaciel-         ###   ########.fr       */
+/*   Updated: 2023/02/21 08:49:19 by hmaciel-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,25 +68,25 @@ char	*get_rest(char *str)
 
 char	*get_buffer(char *str, int fd)
 {
-	char	*array;
+	char	*buffer;
 	int		bytes;
 
-	array = malloc((BUFFER_SIZE + 1) * sizeof(char));
-	if (!array)
+	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	if (!buffer)
 		return (NULL);
 	bytes = 1;
 	while (!ft_strchr(str, '\n') && bytes != 0)
 	{
-		bytes = read(fd, array, BUFFER_SIZE);
+		bytes = read(fd, buffer, BUFFER_SIZE);
 		if (bytes == -1)
 		{
-			free(array);
+			free(buffer);
 			return (NULL);
 		}
-		array[bytes] = '\0';
-		str = ft_strjoin(str, array);
+		buffer[bytes] = '\0';
+		str = ft_strjoin(str, buffer);
 	}
-	free(array);
+	free(buffer);
 	return (str);
 }
 
