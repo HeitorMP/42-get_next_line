@@ -31,7 +31,7 @@ cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 <files>.c
 
 
 
-## What i learn:
+## What i learned:
  - Static variables
  - File manipulation
  - C programming
